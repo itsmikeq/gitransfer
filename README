@@ -1,0 +1,11 @@
+Some day this will contain a package to move git and gerrit data between sites along a message bus.
+
+The reason for this are a few fold.
+
+* Git and syncs between sites is easy. RELIABLE syncs are difficult.  
+
+Moving this mechanism away from scripts and into a messaging system will provide a way for deltas to be maintained while keeping greater performance than traditional git operations.
+
+* A reliable data store will be utilized for keeping sites in sync.  (I have yet to think through exactly how though)  The need is for either side(s) of a connection is to go down, for an indefinate period of time, when it comes back the data will be transfered.  This leads me to topics v. queues but will be thought through better some other time... 
+
+The last phase will be a data store, which will store data in a reliable manner (eg database) so plugins can be created.  In this database, gerrit comments, etc. will be stored.  Plugins for gitorious, github, etc. can be created so data can be moved from gerrit to more user friendly places.
